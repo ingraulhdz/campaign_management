@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\{{modelName}};
+use Illuminate\Http\Request;
+
+class {{modelName}}Controller extends Controller
+{
+
+
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::orderBy('id', 'ASC')->get();
+        return view('{{modelNamePluralLowerCase}}.index', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+
+
+    public function create()
+    {
+        return view('{{modelNamePluralLowerCase}}.create');
+    }
+
+
+    public function store(Request $request)
+    {
+        $data = $this->validate(request(), [
+            'nombre' => 'required|min:2|max:244',
+            'descripcion' => 'required|min:2|max:244',
+
+
+
+        ]);
+        try {
+
+
+            ${{modelNameSingularLowerCase}} = new {{modelName}}($request->all());
+
+            ${{modelNameSingularLowerCase}}->save();
+        } catch (\Exception $e) {
+
+            $messageError = "Someting is worng: " . $e->getMessage();
+            \Session::flash('error', $messageError);
+            return \Redirect::back()->withInput()->withErrors($messageError);
+        }
+
+        $message = 'El {{modelName}} ha sido creado.';
+        \Session::flash('message', $message);
+        return redirect()->route('{{modelNamePluralLowerCase}}.index');
+    }
+
+
+
+
+    public function edit($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNamePluralLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $data = $this->validate(request(), [
+            'nombre' => 'required|min:2|max:244',
+            'descripcion' => 'required|min:2|max:244',
+
+
+        ]);
+        try {
+            ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+            ${{modelNameSingularLowerCase}}->fill($request->all());
+            ${{modelNameSingularLowerCase}}->save();
+        } catch (\Exception $e) {
+
+            $messageError = "Someting is worng: " . $e->getMessage();
+            \Session::flash('error', $messageError);
+            return \Redirect::back()->withInput()->withErrors($messageError);
+        }
+        $message = '{{modelName}} actualizado! ';
+        \Session::flash('message', $message);
+        return redirect()->route('{{modelNamePluralLowerCase}}.index');
+    }
+
+
+    public function destroy($id)
+    {
+        {{modelName}}::find($id)->delete();
+        $message = '{{modelName}} eliminado! ';
+        \Session::flash('message', $message);
+        return json_encode(array('statusCode' => 200));
+    }
+
+
+
+
+
+
+
+    public function show($id)
+    {
+
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNamePluralLowerCase}}.show', compact('{{modelNameSingularLowerCase}}'));
+    }
+}

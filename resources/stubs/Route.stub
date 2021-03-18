@@ -1,0 +1,21 @@
+
+<?php
+
+
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\{{modelName}}Controller;
+
+
+//{{modelNameSingularLowerCase}} routes
+
+Route::get('{{modelNamePluralLowerCase}}', [{{modelName}}Controller::class, 'index'])->name('{{modelNamePluralLowerCase}}.index')->middleware('permission:{{modelNamePluralLowerCase}}.index');
+Route::get('{{modelNamePluralLowerCase}}/create', [{{modelName}}Controller::class, 'create'])->name('{{modelNamePluralLowerCase}}.create')->middleware('permission:{{modelNamePluralLowerCase}}.create');
+Route::post('{{modelNamePluralLowerCase}}', [{{modelName}}Controller::class, 'store'])->name('{{modelNamePluralLowerCase}}.store')->middleware('permission:{{modelNamePluralLowerCase}}.create');
+Route::get('{{modelNamePluralLowerCase}}/{{{modelNameSingularLowerCase}}}/edit', [{{modelName}}Controller::class, 'edit'])->name('{{modelNamePluralLowerCase}}.edit')->middleware('permission:{{modelNamePluralLowerCase}}.edit');
+Route::put('{{modelNamePluralLowerCase}}/{{{modelNameSingularLowerCase}}}', [{{modelName}}Controller::class, 'update'])->name('{{modelNamePluralLowerCase}}.update')->middleware('permission:{{modelNamePluralLowerCase}}.edit');
+Route::get('{{modelNamePluralLowerCase}}/{{{modelNameSingularLowerCase}}}', [{{modelName}}Controller::class, 'show'])->name('{{modelNamePluralLowerCase}}.show')->middleware('permission:{{modelNamePluralLowerCase}}.show');
+Route::delete('{{modelNamePluralLowerCase}}/{{{modelNameSingularLowerCase}}}', [{{modelName}}Controller::class, 'destroy'])->name('{{modelNamePluralLowerCase}}.destroy')->middleware('permission:{{modelNamePluralLowerCase}}.delete');
+Route::delete('{{modelNamePluralLowerCase}}/delete/{{{modelNameSingularLowerCase}}}', [{{modelName}}Controller::class, 'delete'])->name('{{modelNamePluralLowerCase}}.delete')->middleware('permission:{{modelNamePluralLowerCase}}.delete');
+Route::get('{{modelNamePluralLowerCase}}/restore/{{{modelNameSingularLowerCase}}}', [{{modelName}}Controller::class, 'restore'])->name('{{modelNamePluralLowerCase}}.restore')->middleware('permission:{{modelNamePluralLowerCase}}.delete');

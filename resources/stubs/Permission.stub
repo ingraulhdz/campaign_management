@@ -1,0 +1,72 @@
+<?php
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\{{modelName}};
+
+class {{modelName}}PermissionsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+
+  
+
+        //{{modelName}} Permissions
+        
+        Permission::create([
+        'name' => '{{modelNamePluralLowerCase}}.index',
+        'description' => 'User can view main table with some details',
+        'front_name' => 'View {{modelNamePluralLowerCase}} table',
+        'model' => '{{modelName}}',
+        ]);
+        Permission::create([
+            'name' => '{{modelNamePluralLowerCase}}.edit',
+            'description' => 'User can view edit form and update {{modelName}}',
+            'front_name' => 'Edit {{modelName}}',
+                    'model' => '{{modelName}}',
+
+            ]);
+        Permission::create([
+                'name' => '{{modelNamePluralLowerCase}}.show',
+                'description' => 'Can view details of each {{modelName}}',
+                'front_name' => 'View {{modelName}} details',
+                        'model' => '{{modelName}}',
+
+                ]);    
+        Permission::create([
+                    'name' => '{{modelNamePluralLowerCase}}.create',
+                    'description' => 'User can view create form and add new {{modelName}}',
+                    'front_name' => 'Create a new {{modelName}}',
+                            'model' => '{{modelName}}',
+
+                    ]);      
+                    
+        
+
+                                Permission::create([
+                        'name' => '{{modelNamePluralLowerCase}}.delete',
+                        'description' => 'User can delete a {{modelName}}',
+                        'front_name' => 'Delete {{modelName}}',
+                                'model' => '{{modelName}}',
+
+                        ]);
+
+                        Permission::create([
+                            'name' => '{{modelNamePluralLowerCase}}.restore',
+                            'description' => 'User can restore a {{modelName}}',
+                            'front_name' => 'Restore {{modelName}}',
+                                    'model' => '{{modelName}}',
+
+                            ]);
+
+
+    }
+}
