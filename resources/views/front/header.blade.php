@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>La Loma Renovacion</title>
+    <title>Campaign Management | Administrador de campañas</title>
 
     <!-- Custom fonts for this template-->
     <link
