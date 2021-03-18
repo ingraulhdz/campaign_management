@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DistritoFederal extends Model
 {
     use HasFactory;
-        protected $table = 'Distritos_federales';
+        protected $table = 'distritos_federales';
             protected $fillable = ['nombre'];
 
 
