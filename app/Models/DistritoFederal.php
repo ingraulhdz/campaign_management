@@ -9,5 +9,7 @@ class DistritoFederal extends Model
 {
     use HasFactory;
         protected $table = 'Distritos_federales';
+            protected $fillable = ['nombre'];
+
 
 }
