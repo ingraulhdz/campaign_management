@@ -102,8 +102,10 @@
 
                                        @if (Route::has('login'))
                 @auth
-                 <a  href="{{ url('/home') }}">Home</a>
+                                                    <li class="nav-item">
 
+                 <a  href="{{ url('/home') }}">Home</a>
+</li>
                 @else
                                                         <li class="nav-item">
 

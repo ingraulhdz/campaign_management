@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class='fas fa-fw fa-chart-area'></i>
         </div>
-        <div class="sidebar-brand-text mx-3">AC<sup>2021</sup></div>
+        <div class="sidebar-brand-text mx-3"><small>Campaign</small><sup>Management</sup></div>
     </a>
 
     <!-- Divider -->
